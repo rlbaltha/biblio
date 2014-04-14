@@ -1,0 +1,5 @@
+murky_user:
+    resource: "@MurkyUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
