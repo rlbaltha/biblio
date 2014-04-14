@@ -1,13 +1,63 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>{% block title %}Bootstrap 101 Template{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+
+    {% block stylesheets %}
+        {% stylesheets '@bootstrap_less' combine=true %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/murkyhome/css/local.css') }}">
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header col-sm-2">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a name="top"></a>
+        <a class="navbar-brand" href="#" title="{{ application_name }}">{{ application_name }}</a>
+    </div>
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li></li>
+            <li></li>
+            {% if is_granted('ROLE_USER') %}
+                <li><a title="Logout" href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="col-sm-2  hidden-xs">
+        <ul class="nav nav-list">
+
+        </ul>
+    </div>
+    <div class="col-sm-10  hidden-xs">
+        {{ block('body') }}
+    </div>
+</div>
+
+
+{% block javascripts %}
+    {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+</body>
 </html>

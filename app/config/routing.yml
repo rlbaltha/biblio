@@ -1,3 +1,8 @@
+murky_home:
+    resource: "@MurkyHomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 murky_user:
     resource: "@MurkyUserBundle/Controller/"
     type:     annotation
