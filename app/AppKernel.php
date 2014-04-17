@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Murky\UserBundle\MurkyUserBundle(),
             new Murky\HomeBundle\MurkyHomeBundle(),
+            new Murky\BiblioBundle\MurkyBiblioBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
