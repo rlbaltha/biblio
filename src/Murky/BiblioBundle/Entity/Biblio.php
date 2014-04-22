@@ -42,6 +42,10 @@ class Biblio
      */
     private $fileFormat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="biblio")
+     */
+    protected $user;
 
     /**
      * Get id

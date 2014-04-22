@@ -38,6 +38,12 @@ class User extends BaseUser
 
 
     /**
+     * @ORM\OnetoMany(targetEntity=”Murky\BiblioBundle\Entity\biblio”, mappedBy=”user”)
+     */
+    protected $biblios;
+
+
+    /**
      * Get id
      *
      * @return integer 

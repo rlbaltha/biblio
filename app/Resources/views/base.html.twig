@@ -58,6 +58,13 @@
     {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+    <script language="javascript">
+        $(document).ready(function() {
+            $('input').addClass('form-control');
+        });
+    </script>
+
 {% endblock %}
 </body>
 </html>
