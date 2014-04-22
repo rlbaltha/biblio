@@ -3,7 +3,7 @@
 namespace Murky\BiblioBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Murky\HomeBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -27,7 +27,7 @@ class BiblioController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getEm();
 
         $entities = $em->getRepository('MurkyBiblioBundle:Biblio')->findAll();
 
@@ -45,11 +45,14 @@ class BiblioController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Biblio();
+        $user = $this->getUser();
+        $entity->setUser($user);
+
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->getEm();
             $em->persist($entity);
             $em->flush();
 
@@ -108,7 +111,7 @@ class BiblioController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getEm();
 
         $entity = $em->getRepository('MurkyBiblioBundle:Biblio')->find($id);
 
@@ -133,7 +136,7 @@ class BiblioController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getEm();
 
         $entity = $em->getRepository('MurkyBiblioBundle:Biblio')->find($id);
 
@@ -178,7 +181,7 @@ class BiblioController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getEm();
 
         $entity = $em->getRepository('MurkyBiblioBundle:Biblio')->find($id);
 
@@ -214,7 +217,7 @@ class BiblioController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->getEm();
             $entity = $em->getRepository('MurkyBiblioBundle:Biblio')->find($id);
 
             if (!$entity) {

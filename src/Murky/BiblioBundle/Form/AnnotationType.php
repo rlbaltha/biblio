@@ -15,7 +15,8 @@ class AnnotationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annotation')
+            ->add('annotation', 'ckeditor', array('config_name' => 'editor_default',))
+            ->add('biblio', 'hidden')
         ;
     }
     

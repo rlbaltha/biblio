@@ -16,7 +16,7 @@ class BiblioType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('pubInfo')
+            ->add('pubInfo', 'ckeditor', array('config_name' => 'editor_default',))
             ->add('fileFormat')
         ;
     }

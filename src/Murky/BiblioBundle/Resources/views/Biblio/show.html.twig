@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <th>Pubinfo</th>
-                <td>{{ entity.pubInfo }}</td>
+                <td>{{ entity.pubInfo|raw }}</td>
             </tr>
             <tr>
                 <th>Fileformat</th>
@@ -23,6 +23,23 @@
             </tr>
         </tbody>
     </table>
+
+<h2>Annotations</h2>
+
+<table class="table table-hover">
+    {% for annotation in entity.annotations %}
+        <tr>
+            <td>{{ annotation.annotation|raw }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a class="btn btn-default" href="{{ path('annotation_edit', { 'id': annotation.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
 
         <ul class="record_actions">
     <li>
@@ -33,6 +50,11 @@
     <li>
         <a class="btn btn-default" href="{{ path('biblio_edit', { 'id': entity.id }) }}">
             Edit
+        </a>
+    </li>
+    <li>
+        <a class="btn btn-default" href="{{ path('annotation_new', { 'biblioid': entity.id }) }}">
+           Create a new Annotation
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

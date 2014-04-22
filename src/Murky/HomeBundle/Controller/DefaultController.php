@@ -2,7 +2,7 @@
 
 namespace Murky\HomeBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Murky\HomeBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 

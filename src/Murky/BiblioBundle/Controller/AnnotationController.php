@@ -3,7 +3,7 @@
 namespace Murky\BiblioBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Murky\HomeBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -84,12 +84,14 @@ class AnnotationController extends Controller
     /**
      * Displays a form to create a new Annotation entity.
      *
-     * @Route("/new", name="annotation_new")
+     * @Route("/{biblioid}/new", name="annotation_new")
      * @Method("GET")
      * @Template()
      */
-    public function newAction()
+    public function newAction($biblioid)
     {
+        $em= $this->getEm();
+        $biblio = $em->getRepository('MurkyBiblioBundle:Biblio')->find($biblioid);
         $entity = new Annotation();
         $form   = $this->createCreateForm($entity);
 

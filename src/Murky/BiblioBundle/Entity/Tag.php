@@ -28,6 +28,12 @@ class Tag
      */
     private $tag;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="tags")
+     *
+     */
+    protected $user;
+
 
     /**
      * Get id
@@ -60,5 +66,28 @@ class Tag
     public function getTag()
     {
         return $this->tag;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Murky\UserBundle\Entity\User $user
+     * @return Tag
+     */
+    public function setUser(\Murky\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Murky\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

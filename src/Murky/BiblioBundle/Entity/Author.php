@@ -49,6 +49,12 @@ class Author
      */
     private $gender;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="authors")
+     *
+     */
+    protected $user;
+
 
     /**
      * Get id
@@ -150,5 +156,28 @@ class Author
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Murky\UserBundle\Entity\User $user
+     * @return Author
+     */
+    public function setUser(\Murky\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Murky\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

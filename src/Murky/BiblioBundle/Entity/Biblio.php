@@ -43,9 +43,17 @@ class Biblio
     private $fileFormat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="biblio")
+     * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="biblios")
+     *
      */
     protected $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Murky\BiblioBundle\Entity\Annotation", mappedBy="biblio")
+     *
+     */
+    protected $annotations;
+
 
     /**
      * Get id
@@ -124,5 +132,68 @@ class Biblio
     public function getFileFormat()
     {
         return $this->fileFormat;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Murky\UserBundle\Entity\User $user
+     * @return Biblio
+     */
+    public function setUser(\Murky\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Murky\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->annotations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add annotations
+     *
+     * @param \Murky\BiblioBundle\Entity\Annotation $annotations
+     * @return Biblio
+     */
+    public function addAnnotation(\Murky\BiblioBundle\Entity\Annotation $annotations)
+    {
+        $this->annotations[] = $annotations;
+
+        return $this;
+    }
+
+    /**
+     * Remove annotations
+     *
+     * @param \Murky\BiblioBundle\Entity\Annotation $annotations
+     */
+    public function removeAnnotation(\Murky\BiblioBundle\Entity\Annotation $annotations)
+    {
+        $this->annotations->removeElement($annotations);
+    }
+
+    /**
+     * Get annotations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAnnotations()
+    {
+        return $this->annotations;
     }
 }
