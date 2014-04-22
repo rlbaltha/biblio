@@ -44,7 +44,6 @@ class Biblio
 
     /**
      * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="biblios")
-     *
      */
     protected $user;
 
@@ -54,6 +53,10 @@ class Biblio
      */
     protected $annotations;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Murky\BiblioBundle\Entity\Tag")
+     */
+    protected $tags;
 
     /**
      * Get id
@@ -195,5 +198,38 @@ class Biblio
     public function getAnnotations()
     {
         return $this->annotations;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Murky\BiblioBundle\Entity\Tag $tags
+     * @return Biblio
+     */
+    public function addTag(\Murky\BiblioBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Murky\BiblioBundle\Entity\Tag $tags
+     */
+    public function removeTag(\Murky\BiblioBundle\Entity\Tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

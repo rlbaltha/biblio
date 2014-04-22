@@ -41,6 +41,22 @@
     {% endfor %}
 </table>
 
+    <h2>Tags</h2>
+
+    <table class="table table-hover">
+        {% for tag in entity.tags %}
+            <tr>
+                <td>{{ tag.tag|raw }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="btn btn-default" href="{{ path('tag_edit', { 'id': tag.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
         <ul class="record_actions">
     <li>
         <a href="{{ path('biblio') }}">
