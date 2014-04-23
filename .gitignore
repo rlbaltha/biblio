@@ -1,4 +1,10 @@
 /web/bundles/
+/web/css/
+/web/js/
+/web/assetic/
+/web/uploads/
+/upload/
+/components/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
@@ -9,3 +15,8 @@
 /vendor/
 /bin/
 /composer.phar
+/composer.lock
+.idea
+/node_module/
+/temp/
+
