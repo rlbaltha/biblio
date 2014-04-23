@@ -6,7 +6,6 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Pubinfo</th>
                 <th>Fileformat</th>
@@ -16,8 +15,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('biblio_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.title }}</td>
+                <td><a class="btn btn-default" href="{{ path('biblio_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
                 <td>{{ entity.pubInfo|raw }}</td>
                 <td>{{ entity.fileFormat }}</td>
                 <td>
