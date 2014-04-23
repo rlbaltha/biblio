@@ -16,7 +16,7 @@ class AnnotationType extends AbstractType
     {
         $builder
             ->add('annotation', 'ckeditor', array('config_name' => 'editor_default',))
-            ->add('biblio', 'hidden')
+            ->add('biblio','entity', array('class' => 'MurkyBiblioBundle:Biblio','property' => 'title',))
         ;
     }
     

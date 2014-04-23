@@ -6,12 +6,16 @@
     <table class="table table-hover">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
                 <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Author(s)</th>
+                <td>
+                    {% for author in entity.authors %}
+                    {{ author.firstname }} {{ author.lastname }}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Pubinfo</th>
@@ -43,20 +47,10 @@
 
     <h2>Tags</h2>
 
-    <table class="table table-hover">
         {% for tag in entity.tags %}
-            <tr>
-                <td>{{ tag.tag|raw }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-default" href="{{ path('tag_edit', { 'id': tag.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            <span class="label label-info">{{ tag.tag }}</span>
         {% endfor %}
-    </table>
+
         <ul class="record_actions">
     <li>
         <a href="{{ path('biblio') }}">

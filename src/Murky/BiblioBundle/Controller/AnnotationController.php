@@ -53,7 +53,7 @@ class AnnotationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('annotation_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('biblio_show', array('id' => $entity->getBiblio()->getId())));
         }
 
         return array(
@@ -93,6 +93,7 @@ class AnnotationController extends Controller
         $em= $this->getEm();
         $biblio = $em->getRepository('MurkyBiblioBundle:Biblio')->find($biblioid);
         $entity = new Annotation();
+        $entity->setBiblio($biblio);
         $form   = $this->createCreateForm($entity);
 
         return array(

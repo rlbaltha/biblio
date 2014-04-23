@@ -45,9 +45,11 @@
 <div class="container">
     <div class="col-sm-2  hidden-xs">
         <ul class="nav nav-list">
+            {% if is_granted('ROLE_USER') %}
             <li><a title="Biblio" href="{{ path('biblio') }}">Biblio</a></li>
             <li><a title="Tags" href="{{ path('tag') }}">Tags</a></li>
             <li><a title="Authors" href="{{ path('author') }}">Authors</a></li>
+            {% endif %}
         </ul>
     </div>
     <div class="col-sm-10  hidden-xs">
@@ -57,16 +59,17 @@
 
 
 {% block javascripts %}
+{% if is_granted('ROLE_USER') %}
     {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     <script language="javascript">
         $(document).ready(function() {
-            $('input').addClass('form-control');
+            $('input[type=text]').addClass('form-control');
         });
     </script>
-
+{% endif %}
 {% endblock %}
 </body>
 </html>

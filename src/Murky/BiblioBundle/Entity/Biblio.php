@@ -59,6 +59,11 @@ class Biblio
     protected $tags;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Murky\BiblioBundle\Entity\Author")
+     */
+    protected $authors;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -231,5 +236,38 @@ class Biblio
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Add authors
+     *
+     * @param \Murky\BiblioBundle\Entity\Author $authors
+     * @return Biblio
+     */
+    public function addAuthor(\Murky\BiblioBundle\Entity\Author $authors)
+    {
+        $this->authors[] = $authors;
+
+        return $this;
+    }
+
+    /**
+     * Remove authors
+     *
+     * @param \Murky\BiblioBundle\Entity\Author $authors
+     */
+    public function removeAuthor(\Murky\BiblioBundle\Entity\Author $authors)
+    {
+        $this->authors->removeElement($authors);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
     }
 }

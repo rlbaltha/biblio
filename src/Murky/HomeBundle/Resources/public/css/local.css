@@ -8,3 +8,15 @@ body {
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
+
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+input[type="checkbox"]
+{
+    margin-left: 5px;
+}

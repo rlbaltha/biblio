@@ -18,6 +18,9 @@ class BiblioType extends AbstractType
             ->add('title')
             ->add('pubInfo', 'ckeditor', array('config_name' => 'editor_default',))
             ->add('fileFormat')
+            ->add('tags','entity', array('class' => 'MurkyBiblioBundle:Tag','property' => 'tag','multiple' => true, 'expanded' => true))
+            ->add('authors','entity', array('class' => 'MurkyBiblioBundle:Author','property' => 'lastname','multiple' => true, 'expanded' => true))
+
         ;
     }
     
