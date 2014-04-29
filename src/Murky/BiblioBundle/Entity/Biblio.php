@@ -38,7 +38,7 @@ class Biblio
     /**
      * @var integer
      *
-     * @ORM\Column(name="file_format", type="integer")
+     * @ORM\Column(name="file_format", type="integer", nullable=true)
      */
     private $fileFormat;
 
