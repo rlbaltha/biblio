@@ -53,7 +53,7 @@ class SectionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('section_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('section', array('id' => $entity->getId())));
         }
 
         return array(

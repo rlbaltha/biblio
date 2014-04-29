@@ -53,7 +53,7 @@ class TagController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tag_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('tag', array('id' => $entity->getId())));
         }
 
         return array(
