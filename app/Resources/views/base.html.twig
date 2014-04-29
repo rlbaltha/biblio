@@ -46,6 +46,7 @@
     <div class="col-sm-2  hidden-xs">
         <ul class="nav nav-list">
             {% if is_granted('ROLE_USER') %}
+            <li><a title="Section" href="{{ path('section') }}">Section</a></li>
             <li><a title="Biblio" href="{{ path('biblio') }}">Biblio</a></li>
             <li><a title="Tags" href="{{ path('tag') }}">Tags</a></li>
             <li><a title="Authors" href="{{ path('author') }}">Authors</a></li>

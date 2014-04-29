@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jqueryui.git",
-                "reference": "0fc3f6dc1ded6031a2c84937453c9b3067112cbf"
+                "reference": "b68f1ee8749c90b2dfc5f2cb33c76fd0308bd356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/0fc3f6dc1ded6031a2c84937453c9b3067112cbf",
-                "reference": "0fc3f6dc1ded6031a2c84937453c9b3067112cbf",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/b68f1ee8749c90b2dfc5f2cb33c76fd0308bd356",
+                "reference": "b68f1ee8749c90b2dfc5f2cb33c76fd0308bd356",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
-            "time": "2014-03-20 14:16:07"
+            "time": "2014-04-22 12:57:43"
         },
         {
             "name": "doctrine/annotations",
@@ -168,7 +168,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -189,7 +189,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1258,12 +1258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "7ea961c9ef60343a359f513c9fec7fd3bb65ddcb"
+                "reference": "55d38f204b8c994ddf7e9aa3207c23d2b7ff429b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/7ea961c9ef60343a359f513c9fec7fd3bb65ddcb",
-                "reference": "7ea961c9ef60343a359f513c9fec7fd3bb65ddcb",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/55d38f204b8c994ddf7e9aa3207c23d2b7ff429b",
+                "reference": "55d38f204b8c994ddf7e9aa3207c23d2b7ff429b",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1308,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2014-03-04 08:53:05"
+            "time": "2014-04-26 09:18:07"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1424,16 +1424,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.8.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174"
+                "reference": "65026b610f8c19e61d7242f600530677b0466aac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/392ef35fd470638e08d0160d6b1cbab63cb23174",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/65026b610f8c19e61d7242f600530677b0466aac",
+                "reference": "65026b610f8c19e61d7242f600530677b0466aac",
                 "shasum": ""
             },
             "require": {
@@ -1461,7 +1461,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.9.x-dev"
                 }
             },
             "autoload": {
@@ -1488,7 +1488,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-23 19:50:26"
+            "time": "2014-04-24 13:29:03"
         },
         {
             "name": "packagist/yuicompressor-bin",
@@ -2116,16 +2116,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3199b2e0d194f71fe2e13c95768b2ef22206682b"
+                "reference": "4697c33cdfb520dcf83fd6e4f7864fa26ddaebea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3199b2e0d194f71fe2e13c95768b2ef22206682b",
-                "reference": "3199b2e0d194f71fe2e13c95768b2ef22206682b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/4697c33cdfb520dcf83fd6e4f7864fa26ddaebea",
+                "reference": "4697c33cdfb520dcf83fd6e4f7864fa26ddaebea",
                 "shasum": ""
             },
             "require": {
@@ -2227,7 +2227,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-04-04 10:27:02"
+            "time": "2014-04-27 13:39:18"
         },
         {
             "name": "twbs/bootstrap",
@@ -2235,18 +2235,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "ee7498a69366c516ccba01ca7c977fb83ea23a7b"
+                "reference": "bde5f1fe9f837cce036821be5aaf6c40e19a8097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ee7498a69366c516ccba01ca7c977fb83ea23a7b",
-                "reference": "ee7498a69366c516ccba01ca7c977fb83ea23a7b",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bde5f1fe9f837cce036821be5aaf6c40e19a8097",
+                "reference": "bde5f1fe9f837cce036821be5aaf6c40e19a8097",
                 "shasum": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2275,7 +2275,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-04-09 19:07:27"
+            "time": "2014-04-28 05:29:14"
         },
         {
             "name": "twig/extensions",
@@ -2390,12 +2390,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "3578d59bdc9ee98f17d9c55262c17de269fd1d4a"
+                "reference": "b25a8124341cd08f5ca0bb5a2fc0c71bc3c4dfa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/3578d59bdc9ee98f17d9c55262c17de269fd1d4a",
-                "reference": "3578d59bdc9ee98f17d9c55262c17de269fd1d4a",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/b25a8124341cd08f5ca0bb5a2fc0c71bc3c4dfa5",
+                "reference": "b25a8124341cd08f5ca0bb5a2fc0c71bc3c4dfa5",
                 "shasum": ""
             },
             "require": {
@@ -2446,7 +2446,7 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2014-04-11 19:42:59"
+            "time": "2014-04-20 04:52:30"
         }
     ],
     "packages-dev": [

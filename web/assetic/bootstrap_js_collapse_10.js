@@ -56,12 +56,18 @@
     this.transitioning = 1
 
     var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+      if (e && e.target != this.$element[0]) {
+        this.$element
+          .one($.support.transition.end, $.proxy(complete, this))
+        return
+      }
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('auto')
+        .addClass('collapse in')[dimension]('')
       this.transitioning = 0
-      this.$element.trigger('shown.bs.collapse')
+      this.$element
+        .off($.support.transition.end + '.bs.collapse')
+        .trigger('shown.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -69,7 +75,7 @@
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one($.support.transition.end, $.proxy(complete, this))
+      .on($.support.transition.end + '.bs.collapse', $.proxy(complete, this))
       .emulateTransitionEnd(350)[dimension](this.$element[0][scrollSize])
   }
 
@@ -92,7 +98,11 @@
     this.transitioning = 1
 
     var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+      if (e && e.target != this.$element[0]) {
+        this.$element
+          .one($.support.transition.end, $.proxy(complete, this))
+        return
+      }
       this.transitioning = 0
       this.$element
         .trigger('hidden.bs.collapse')

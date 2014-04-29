@@ -57,6 +57,12 @@ class User extends BaseUser
     protected $tags;
 
     /**
+     * @ORM\OneToMany(targetEntity="Murky\BiblioBundle\Entity\Section", mappedBy="user")
+     *
+     */
+    protected $sections;
+
+    /**
      * @ORM\OneToMany(targetEntity="Murky\BiblioBundle\Entity\Author", mappedBy="user")
      *
      */

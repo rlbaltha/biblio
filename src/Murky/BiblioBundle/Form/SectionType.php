@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BiblioType extends AbstractType
+class SectionType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,7 @@ class BiblioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('pubInfo', 'ckeditor', array('config_name' => 'editor_default',))
-            ->add('tags','entity', array('class' => 'MurkyBiblioBundle:Tag','property' => 'tag','multiple' => true, 'expanded' => true))
-            ->add('authors','entity', array('class' => 'MurkyBiblioBundle:Author','property' => 'lastname','multiple' => true, 'expanded' => true))
-            ->add('section','entity', array('class' => 'MurkyBiblioBundle:Section','property' => 'section',))
-
+            ->add('section')
         ;
     }
     
@@ -30,7 +25,7 @@ class BiblioType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Murky\BiblioBundle\Entity\Biblio'
+            'data_class' => 'Murky\BiblioBundle\Entity\Section'
         ));
     }
 
@@ -39,6 +34,6 @@ class BiblioType extends AbstractType
      */
     public function getName()
     {
-        return 'murky_bibliobundle_biblio';
+        return 'murky_bibliobundle_section';
     }
 }

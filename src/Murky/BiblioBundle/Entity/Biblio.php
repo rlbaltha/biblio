@@ -48,6 +48,12 @@ class Biblio
     protected $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Murky\BiblioBundle\Entity\Section", inversedBy="biblios")
+     *
+     */
+    protected $section;
+
+    /**
      * @ORM\OneToMany(targetEntity="Murky\BiblioBundle\Entity\Annotation", mappedBy="biblio")
      *
      */
@@ -269,5 +275,28 @@ class Biblio
     public function getAuthors()
     {
         return $this->authors;
+    }
+
+    /**
+     * Set section
+     *
+     * @param \Murky\BiblioBundle\Entity\Section $section
+     * @return Biblio
+     */
+    public function setSection(\Murky\BiblioBundle\Entity\Section $section = null)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \Murky\BiblioBundle\Entity\Section 
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 }
