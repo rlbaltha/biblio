@@ -27,9 +27,11 @@
                     <li>
                         <a class="btn btn-default" href="{{ path('author_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li>
-                        <a class="btn btn-default" href="{{ path('author_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
+                     {% if entity.isOwner(app.user) %}
+                            <li>
+                            <a class="btn btn-default btn-sm" href="{{ path('author_edit', { 'id': entity.id }) }}">Edit</a>
+                            </li>                            
+                    {% endif %}
                 </ul>
                 </td>
             </tr>

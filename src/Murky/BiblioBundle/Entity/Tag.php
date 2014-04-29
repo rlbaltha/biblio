@@ -90,4 +90,14 @@ class Tag
     {
         return $this->user;
     }
+    
+    public function isOwner($user)
+    {
+        if($user == $this->user){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

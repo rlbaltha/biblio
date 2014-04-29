@@ -45,6 +45,9 @@ class TagController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Tag();
+        $user = $this->getUser();
+        $entity->setUser($user);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -59,6 +62,7 @@ class TagController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'user'   =>$user
         );
     }
 
@@ -193,7 +197,7 @@ class TagController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tag_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('tag', array('id' => $id)));
         }
 
         return array(

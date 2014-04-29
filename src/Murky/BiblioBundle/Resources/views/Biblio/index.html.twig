@@ -8,7 +8,7 @@
             <tr>
                 <th>Title</th>
                 <th>Pubinfo</th>
-                <th>Fileformat</th>
+                <th>Creator</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,15 +17,20 @@
             <tr>
                 <td><a class="btn btn-default" href="{{ path('biblio_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
                 <td>{{ entity.pubInfo|raw }}</td>
-                <td>{{ entity.fileFormat }}</td>
+                <td>{{ entity.user|raw }}</td> 
                 <td>
                 <ul>
                     <li>
                         <a class="btn btn-default" href="{{ path('biblio_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li>
-                        <a class="btn btn-default" href="{{ path('biblio_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
+                   
+                     {% if entity.isOwner(app.user) %}
+                            <li>
+                            <a class="btn btn-default btn-sm" href="{{ path('biblio_edit', { 'id': entity.id }) }}">Edit</a>
+                            </li>                            
+                    {% endif %}
+                           
+                    
                 </ul>
                 </td>
             </tr>

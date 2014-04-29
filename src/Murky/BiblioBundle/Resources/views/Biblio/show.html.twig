@@ -21,13 +21,25 @@
                 <th>Pubinfo</th>
                 <td>{{ entity.pubInfo|raw }}</td>
             </tr>
-            <tr>
-                <th>Fileformat</th>
-                <td>{{ entity.fileFormat }}</td>
+            <tr>   
+                <th>Tags</th>    
+                <td>{% for tag in entity.tags %}
+                <span class="label label-info">{{ tag.tag }}</span> 
+                {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
-
+  
+  <ul class="record_actions">    
+  {% if entity.isOwner(app.user) %}
+    <li>
+        <a class="btn btn-default btn-sm" href="{{ path('biblio_edit', { 'id': entity.id }) }}">Edit</a>
+    </li>   
+    <li>{{ form(delete_form) }}</li>
+  {% endif %}
+  </ul>
+    
 <h2>Annotations</h2>
 
 <table class="table table-hover">
@@ -36,37 +48,27 @@
             <td>{{ annotation.annotation|raw }}</td>
             <td>
                 <ul>
-                    <li>
-                        <a class="btn btn-default" href="{{ path('annotation_edit', { 'id': annotation.id }) }}">edit</a>
-                    </li>
+                      {% if annotation.isOwner(app.user) %}
+                      <li>
+                      <a class="btn btn-default btn-sm" href="{{ path('annotation_edit', { 'id': annotation.id }) }}">Edit</a>
+                      </li>   
+                      {% endif %} 
                 </ul>
             </td>
         </tr>
-    {% endfor %}
+    {% endfor %}     
 </table>
+  <ul class="record_actions">  
+        <li>
+            <a class="btn btn-default" href="{{ path('annotation_new', { 'biblioid': entity.id }) }}">
+           Create a new Annotation
+            </a>
+        </li> 
 
-    <h2>Tags</h2>
-
-        {% for tag in entity.tags %}
-            <span class="label label-info">{{ tag.tag }}</span>
-        {% endfor %}
-
-        <ul class="record_actions">
-    <li>
+      <li>
         <a href="{{ path('biblio') }}">
             Back to the list
         </a>
-    </li>
-    <li>
-        <a class="btn btn-default" href="{{ path('biblio_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <a class="btn btn-default" href="{{ path('annotation_new', { 'biblioid': entity.id }) }}">
-           Create a new Annotation
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+    </li>                        
 </ul>
 {% endblock %}

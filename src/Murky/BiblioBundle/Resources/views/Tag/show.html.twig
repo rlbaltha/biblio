@@ -22,11 +22,11 @@
             Back to the list
         </a>
     </li>
+  {% if entity.isOwner(app.user) %}
     <li>
-        <a class="btn btn-default" href="{{ path('tag_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
+        <a class="btn btn-default btn-sm" href="{{ path('tag_edit', { 'id': entity.id }) }}">Edit</a>
+    </li>   
     <li>{{ form(delete_form) }}</li>
+  {% endif %}
 </ul>
 {% endblock %}

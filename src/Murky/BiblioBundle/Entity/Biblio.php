@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Biblio
 {
+    const link=0;
+    const pdf=1;
+    const image=2;
+    
     /**
      * @var integer
      *
@@ -40,7 +44,7 @@ class Biblio
      *
      * @ORM\Column(name="file_format", type="integer", nullable=true)
      */
-    private $fileFormat;
+    private $fileFormat = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Murky\UserBundle\Entity\User", inversedBy="biblios")
@@ -299,4 +303,15 @@ class Biblio
     {
         return $this->section;
     }
+    
+     public function isOwner($user)
+    {
+        if($user == $this->user){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
+

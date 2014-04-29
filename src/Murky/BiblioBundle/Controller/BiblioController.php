@@ -62,6 +62,7 @@ class BiblioController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'user'   => $user
         );
     }
 
@@ -196,7 +197,7 @@ class BiblioController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('biblio_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('biblio', array('id' => $id)));
         }
 
         return array(
